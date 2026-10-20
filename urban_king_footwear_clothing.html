@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URBAN KING — Footwear & Clothing</title>
+<style>
+:root{--ink:#171717;--muted:#737373;--cream:#f7f5f0;--line:#e8e4dc;--accent:#c9f31d;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--cream);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}
+.top{background:var(--ink);color:#fff;text-align:center;padding:9px 12px;font-size:12px;letter-spacing:.08em}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 5%;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.logo{font-weight:950;font-size:22px;letter-spacing:-1.5px}.logo span{background:var(--accent);padding:2px 5px;margin-left:3px}
+nav{display:flex;gap:22px}nav a{color:inherit;text-decoration:none;font-size:13px;font-weight:700}
+.header-actions{display:flex;gap:10px;align-items:center}.pill{border:1px solid var(--line);background:white;border-radius:30px;padding:10px 13px;font-size:13px}
+.hero{margin:22px auto 0;width:90%;min-height:360px;background:#dfe3d7;border-radius:20px;display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}
+.hero-copy{padding:clamp(28px,6vw,72px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(42px,6vw,76px);line-height:.92;letter-spacing:-.065em;margin:18px 0 16px;max-width:560px}
+.hero p{color:#555;line-height:1.6;max-width:390px;font-size:14px}.dark-btn{background:var(--ink);color:white;border:0;border-radius:30px;padding:14px 22px;font-weight:750;margin-top:12px}
+.hero-art{display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 55% 42%,#f6f7ee 0,#dfe3d7 54%,#c8cebe 100%);min-height:300px}
+.orbit{position:absolute;width:280px;height:280px;border:1px solid #aab09f;border-radius:50%}
+.shoe{font-size:clamp(110px,18vw,220px);filter:drop-shadow(0 20px 12px #7e837355);transform:rotate(-22deg);z-index:1}
+.tag{position:absolute;right:12%;bottom:15%;background:var(--accent);border-radius:50%;width:88px;height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;font-weight:900;transform:rotate(12deg);z-index:2}
+.trust{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;padding:20px 10px;color:#555;font-size:12px}
+main{width:90%;margin:30px auto 70px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 18px}
+h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.05em;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:8px}
+.categories{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.cat{border:1px solid #d9d5cc;background:transparent;padding:10px 17px;border-radius:30px;font-size:13px}.cat.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tools{display:flex;gap:10px;align-items:center}.search{border:1px solid var(--line);border-radius:30px;padding:11px 15px;width:210px;background:#fff;outline:none}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:transform .2s}.product:hover{transform:translateY(-3px)}
+.prod-art{height:190px;display:flex;align-items:center;justify-content:center;position:relative;background:var(--bg,#ecebe5);font-size:83px}.label{position:absolute;top:12px;left:12px;background:#fff;padding:6px 8px;border-radius:5px;font-size:10px;font-weight:800;text-transform:uppercase}
+.prod-info{padding:15px}.prod-name{font-size:14px;font-weight:800}.prod-type{color:var(--muted);font-size:12px;margin-top:5px}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:13px}.price{font-weight:900}.old{color:#999;text-decoration:line-through;font-size:12px;margin-left:5px;font-weight:400}.add{border:0;background:var(--accent);width:34px;height:34px;border-radius:50%;font-size:20px;font-weight:700}
+footer{background:var(--ink);color:#fff;padding:35px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-small{color:#b8b8b8;font-size:12px;margin-top:8px}
+.overlay{display:none;position:fixed;inset:0;background:#0007;z-index:10;justify-content:flex-end}.overlay.show{display:flex}.cart{width:min(430px,100%);background:#fff;height:100%;padding:25px;display:flex;flex-direction:column}.cart-head{display:flex;justify-content:space-between;align-items:center}.cart-items{overflow:auto;flex:1;margin:20px 0}.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.cart-emoji{background:#f0efe9;border-radius:10px;width:65px;height:65px;display:grid;place-items:center;font-size:35px}.cart-item-info{flex:1}.cart-item-info strong{font-size:13px}.cart-item-info small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;gap:10px;align-items:center;margin-top:8px}.qty button{border:1px solid var(--line);background:#fff;border-radius:5px;width:25px;height:25px}.total{display:flex;justify-content:space-between;font-weight:900;padding:15px 0;border-top:1px solid var(--line)}.checkout{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:15px;font-weight:800}.close{border:0;background:transparent;font-size:24px}.empty{color:var(--muted);text-align:center;padding:50px 0}
+.notice{font-size:11px;color:#777;text-align:center;margin-top:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-art{min-height:220px}.shoe{font-size:140px}nav{display:none}.search{width:150px}.prod-art{height:160px}}
+@media(max-width:430px){header{padding:14px 5%}.logo{font-size:19px}.pill{padding:9px}.hero{width:92%;margin-top:12px}.hero-copy{padding:27px}.hero-art{min-height:190px}.orbit{width:180px;height:180px}.tag{width:65px;height:65px;font-size:10px}main{width:92%}.section-head{align-items:flex-start;flex-direction:column}.tools{width:100%}.search{flex:1}.prod-art{height:135px;font-size:65px}.prod-info{padding:11px}.prod-name{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="top">NEW SEASON DROP · STYLE THAT MOVES WITH YOU</div>
+<header>
+  <div class="logo" id="brandLogo">URBAN KING<span>®</span></div>
+  <nav><a href="#shop" onclick="setFilter('All')">SHOP ALL</a><a href="#shop" onclick="setFilter('Footwear')">FOOTWEAR</a><a href="#shop" onclick="setFilter('Clothing')">CLOTHING</a></nav>
+  <div class="header-actions"><button class="pill" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop</button><button class="pill" onclick="openSettings()">Store setup</button><button class="pill" onclick="openCart()">Bag (<span id="cartCount">0</span>)</button></div>
+</header>
+<section class="hero">
+  <div class="hero-copy"><div class="eyebrow" id="heroEyebrow">Everyday essentials · New collection</div><h1>OWN YOUR<br>EVERYDAY.</h1><p>Fresh footwear and easy-to-wear clothing. Good style, sensible prices, made for your daily hustle.</p><button class="dark-btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">SHOP THE COLLECTION ↗</button></div>
+  <div class="hero-art"><div class="orbit"></div><div class="shoe">👟</div><div class="tag">FRESH<br>DROP<br>2026</div></div>
+</section>
+<div class="trust"><span>✓ Everyday prices</span><span>✓ Easy ordering</span><span>✓ New styles added regularly</span><span>✓ WhatsApp support</span></div>
+<main id="shop">
+  <div class="section-head"><div><div class="eyebrow">CURATED FOR YOU</div><h2>Find your fit.</h2><div class="sub">Footwear and clothing for every day.</div></div><div class="tools"><input class="search" id="search" placeholder="Search products…" oninput="renderProducts()"></div></div>
+  <div class="categories" id="categories"><button class="cat active" onclick="setFilter('All')">All items</button><button class="cat" onclick="setFilter('Footwear')">Footwear</button><button class="cat" onclick="setFilter('Clothing')">Clothing</button><button class="cat" onclick="setFilter('Sneakers')">Sneakers</button><button class="cat" onclick="setFilter('Shirts')">Shirts</button><button class="cat" onclick="setFilter('Jeans')">Jeans</button></div>
+  <div class="grid" id="products"></div>
+  <div class="section-head" style="margin-top:45px"><div><div class="eyebrow">NEED HELP?</div><h2>Order your way.</h2><div class="sub">Add items to your bag and prepare an order message for WhatsApp.</div></div><button class="dark-btn" onclick="openCart()">VIEW YOUR BAG</button></div>
+</main>
+<footer><div><div class="logo" id="footerLogo">URBAN KING<span>®</span></div><div class="footer-small">Your everyday style destination.</div></div><div><strong>Customer support</strong><div class="footer-small">WhatsApp ordering · Size help · Product enquiries</div></div><div class="footer-small">© 2026 <span id="footerBrand">URBAN KING</span>. Add your real products and confirm every order before payment.</div></footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><div class="cart"><div class="cart-head"><h2>Your bag</h2><button class="close" onclick="closeCart()">×</button></div><div class="cart-items" id="cartItems"></div><div class="total"><span>Subtotal</span><span id="total">₹0</span></div><button class="checkout" onclick="checkout()">PREPARE WHATSAPP ORDER ↗</button><div class="notice">Orders are sent to the WhatsApp number saved in Store setup. Confirm stock, size and delivery fee before payment.</div></div></div>
+
+<div class="overlay" id="settingsOverlay" onclick="if(event.target===this)closeSettings()"><div class="cart" style="overflow:auto"><div class="cart-head"><h2>Store setup</h2><button class="close" onclick="closeSettings()">×</button></div><p class="sub">Set your brand, WhatsApp number and edit the sample catalogue. Preview changes are saved only in this browser; to apply them for all customers, update the default settings and product list in the HTML file, then redeploy.</p><label for="brandInput">Brand name</label><input class="search" style="width:100%;margin:6px 0 14px" id="brandInput" placeholder="e.g. Urban King"><label for="waInput">WhatsApp number with country code</label><input class="search" style="width:100%;margin:6px 0 14px" id="waInput" placeholder="91XXXXXXXXXX"><label for="areaInput">Delivery area</label><input class="search" style="width:100%;margin:6px 0 14px" id="areaInput" placeholder="e.g. Noida, Ghaziabad, Delhi NCR"><label for="catalogInput">Product catalogue (JSON)</label><textarea id="catalogInput" rows="12" style="width:100%;margin:6px 0 14px;padding:12px;border:1px solid var(--line);border-radius:10px;font:12px monospace"></textarea><button class="checkout" onclick="saveSettings()">SAVE STORE SETTINGS</button><button class="pill" style="margin-top:8px" onclick="resetCatalog()">Reset sample catalogue</button><p class="notice">Use product names, prices, type, category, emoji, background colour and label. This is a simple demo admin panel, not a secure multi-user dashboard. Do not share this file as a secret admin system.</p></div></div>
+<script>
+let products=[
+{id:1,name:"Street Runner Sneakers",type:"Sneakers",category:"Footwear",price:799,old:1099,emoji:"👟",bg:"#e9e7de",label:"Bestseller"},
+{id:2,name:"Everyday Slides",type:"Slippers",category:"Footwear",price:299,old:399,emoji:"🩴",bg:"#e8e2d8",label:"Everyday"},
+{id:3,name:"Classic White Sneakers",type:"Sneakers",category:"Footwear",price:899,old:1199,emoji:"👟",bg:"#e5e9e8",label:"New"},
+{id:4,name:"Relaxed Fit T-Shirt",type:"T-Shirt",category:"Clothing",price:349,old:499,emoji:"👕",bg:"#e8e6ed",label:"Popular"},
+{id:5,name:"Casual Checked Shirt",type:"Shirts",category:"Clothing",price:599,old:799,emoji:"👔",bg:"#e7e4d8",label:"New"},
+{id:6,name:"Daily Denim Jeans",type:"Jeans",category:"Clothing",price:799,old:999,emoji:"👖",bg:"#e0e6ed",label:"Classic"},
+{id:7,name:"Sporty Walking Shoes",type:"Shoes",category:"Footwear",price:699,old:899,emoji:"🥾",bg:"#e7e4dc",label:"Value pick"},
+{id:8,name:"Oversized Hoodie",type:"Hoodie",category:"Clothing",price:999,old:1299,emoji:"🧥",bg:"#e8e5df",label:"Comfort"}
+];
+let filter="All",cart={};
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=products.filter(p=>(filter==="All"||p.category===filter||p.type===filter)&&(`${p.name} ${p.type} ${p.category}`).toLowerCase().includes(q));
+ document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="prod-art" style="--bg:${p.bg}"><span class="label">${p.label}</span><span>${p.emoji}</span></div><div class="prod-info"><div class="prod-name">${p.name}</div><div class="prod-type">${p.type} · ${p.category}</div><div class="price-row"><div class="price">${money(p.price)} <span class="old">${money(p.old)}</span></div><button class="add" aria-label="Add ${p.name}" onclick="addToCart(${p.id})">+</button></div></div></article>`).join("")||'<div class="empty">No products found. Try another search.</div>';
+ document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b.textContent.trim()===(filter==="All"?"All items":filter)));
+}
+function setFilter(f){filter=f;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+function addToCart(id){cart[id]=(cart[id]||0)+1;updateCart();document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function updateCart(){
+ const items=Object.entries(cart).filter(([id,q])=>q>0);
+ document.getElementById("cartItems").innerHTML=items.length?items.map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cart-item"><div class="cart-emoji">${p.emoji}</div><div class="cart-item-info"><strong>${p.name}</strong><small>${money(p.price)} each</small><div class="qty"><button onclick="changeQty(${id},-1)">−</button><span>${q}</span><button onclick="changeQty(${id},1)">+</button></div></div><strong>${money(p.price*q)}</strong></div>`}).join(""):'<div class="empty">Your bag is empty.<br>Add a style you like.</div>';
+ const total=items.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0);document.getElementById("total").textContent=money(total);document.getElementById("cartCount").textContent=items.reduce((s,[id,q])=>s+q,0);
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCart()}
+function openCart(){document.getElementById("overlay").classList.add("show");updateCart()}
+function closeCart(){document.getElementById("overlay").classList.remove("show")}
+const defaultProducts=JSON.parse(JSON.stringify(products));
+// BEFORE PUBLISHING: set brand, WhatsApp digits with country code, and service area here.
+const defaultSettings={brand:"URBAN KING",whatsapp:"917835883592",area:"Delhi NCR — local self-delivery"};
+function getSettings(){try{return {...defaultSettings,...JSON.parse(localStorage.getItem("ukStoreSettings")||"{}")}}catch(e){return {...defaultSettings}}}
+function applyBrand(){const cfg=getSettings();document.title=cfg.brand+" — Footwear & Clothing";document.querySelectorAll("#brandLogo,#footerLogo").forEach(el=>{el.innerHTML=cfg.brand.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"<span>®</span>"});const f=document.getElementById("footerBrand");if(f)f.textContent=cfg.brand;}
+function openSettings(){const cfg=getSettings();document.getElementById("brandInput").value=cfg.brand;document.getElementById("waInput").value=cfg.whatsapp;document.getElementById("areaInput").value=cfg.area;document.getElementById("catalogInput").value=JSON.stringify(products,null,2);document.getElementById("settingsOverlay").classList.add("show")}
+function closeSettings(){document.getElementById("settingsOverlay").classList.remove("show")}
+function saveSettings(){
+ const brand=document.getElementById("brandInput").value.trim()||"URBAN KING";
+ const whatsapp=document.getElementById("waInput").value.replace(/\D/g,"");
+ const area=document.getElementById("areaInput").value.trim()||"Delhi NCR";
+ let catalog;try{catalog=JSON.parse(document.getElementById("catalogInput").value);if(!Array.isArray(catalog)||!catalog.length)throw new Error("Catalogue must be a non-empty array");if(catalog.some(p=>!p.name||!Number.isFinite(Number(p.price))||Number(p.price)<0||!p.category))throw new Error("Every product needs name, numeric price and category");}catch(e){alert("Catalogue JSON error: "+e.message);return}
+ if(whatsapp && (whatsapp.length<10||whatsapp.length>15)){alert("Enter WhatsApp number with country code, digits only. Example format: 91XXXXXXXXXX");return}
+ try{localStorage.setItem("ukStoreSettings",JSON.stringify({brand,whatsapp,area}));localStorage.setItem("ukStoreProducts",JSON.stringify(catalog));}catch(e){alert("Could not save in this browser. Please try again.");return}
+ products=catalog;applyBrand();try{const savedProducts=JSON.parse(localStorage.getItem("ukStoreProducts")||"null");if(Array.isArray(savedProducts)&&savedProducts.length)products=savedProducts}catch(e){}
+applyBrand();renderProducts();updateCart();closeSettings();alert("Settings saved in this browser. These settings only affect this browser. For all customers, update the default settings and product list in the HTML file, then redeploy.");
+}
+function resetCatalog(){products=JSON.parse(JSON.stringify(defaultProducts));document.getElementById("catalogInput").value=JSON.stringify(products,null,2)}
+function checkout(){
+ const items=Object.entries(cart).filter(([id,q])=>q>0);if(!items.length){alert("Your bag is empty. Add products first.");return}
+ const cfg=getSettings();if(!cfg.whatsapp){alert("Store owner: open Store setup and save your WhatsApp number first. Example format: 91XXXXXXXXXX.");openSettings();return}
+ const customerName=prompt("Your name:");if(customerName===null||!customerName.trim())return;
+ const customerPhone=prompt("Your mobile number:");if(customerPhone===null||!customerPhone.trim())return;
+ const customerAddress=prompt("Delivery address / area:");if(customerAddress===null||!customerAddress.trim())return;
+ const lines=items.map(([id,q])=>{const p=products.find(x=>x.id==id);return `${p.name} x ${q} — ${money(Number(p.price)*q)}`});
+ const total=items.reduce((sum,[id,q])=>sum+Number(products.find(p=>p.id==id).price)*q,0);
+ const message=`Hello ${cfg.brand}! I'd like to place an order.\nName: ${customerName.trim()}\nPhone: ${customerPhone.trim()}\nDelivery address: ${customerAddress.trim()}\nArea: ${cfg.area}\n\nItems:\n${lines.join("\n")}\nSubtotal: ${money(total)}\nPlease confirm size, stock, delivery fee and payment options before processing.`;
+ window.open("https://wa.me/"+cfg.whatsapp+"?text="+encodeURIComponent(message),"_blank");
+}
+try{const savedProducts=JSON.parse(localStorage.getItem("ukStoreProducts")||"null");if(Array.isArray(savedProducts)&&savedProducts.length)products=savedProducts}catch(e){}
+applyBrand();renderProducts();updateCart();
+</script>
+</body>
+</html>
