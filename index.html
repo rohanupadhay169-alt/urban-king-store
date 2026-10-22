@@ -36,7 +36,9 @@ footer{background:var(--ink);color:#fff;padding:35px 5%;display:flex;justify-con
 @media(max-width:430px){header{padding:14px 5%}.logo{font-size:19px}.pill{padding:9px}.hero{width:92%;margin-top:12px}.hero-copy{padding:27px}.hero-art{min-height:190px}.orbit{width:180px;height:180px}.tag{width:65px;height:65px;font-size:10px}main{width:92%}.section-head{align-items:flex-start;flex-direction:column}.tools{width:100%}.search{flex:1}.prod-art{height:135px;font-size:65px}.prod-info{padding:11px}.prod-name{font-size:12px}}
 </style>
 </head>
-<body>
+
+
+
 <div class="top">NEW SEASON DROP · STYLE THAT MOVES WITH YOU</div>
 <header>
   <div class="logo" id="brandLogo">URBAN KING<span>®</span></div>
@@ -119,5 +121,11 @@ function checkout(){
 try{const savedProducts=JSON.parse(localStorage.getItem("ukStoreProducts")||"null");if(Array.isArray(savedProducts)&&savedProducts.length)products=savedProducts}catch(e){}
 applyBrand();renderProducts();updateCart();
 </script>
+<a href="https://wa.me/917835883592?text=Hi%20URBAN%20KING%2C%20I%20want%20to%20place%20an%20order."
+   target="_blank"
+   style="position:fixed;bottom:20px;right:16px;background:#25D366;color:white;padding:14px 20px;border-radius:30px;text-decoration:none;font-weight:bold;z-index:9999;">
+  Order on WhatsApp
+</a>
+
 </body>
 </html>
